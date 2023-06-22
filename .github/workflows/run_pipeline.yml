@@ -26,3 +26,13 @@ jobs:
           snakefile: 'Snakefile'
           args: '--cores 1 --use-conda --conda-cleanup-pkgs cache'
           stagein: '' # additional preliminary commands to run (can be multiline)
+      - name: configure git on runner
+        run: |
+         git config --local user.email "anwartarek719@gmail.com"
+         git config --local user.name "GitHub"
+      - name: Commit changes to repository
+        run: |
+          git add visuals/words_dought.png index.html
+          git commit -m "New day rendering"
+          git push origin main
+      - run: echo "🍏 This job's status is ${{ job.status }}."
