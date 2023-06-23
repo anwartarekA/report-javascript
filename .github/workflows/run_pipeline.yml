@@ -1,6 +1,10 @@
 name: Run Drought Index Workflow
 run-name: ${{ github.actor }} is running snakemake workflow 🚀
-on: [push]
+on: 
+ # push:
+ schedule:
+  - cron: '7 15 * * *'
+  
 jobs:
  Run-Drought-Index-Workflow:
     runs-on: ubuntu-latest
